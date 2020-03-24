@@ -4,12 +4,8 @@ from io import StringIO
 from typing.io import TextIO
 import sys
 
-
-from .JavaScriptBaseLexer import JavaScriptBaseLexer
-
-
 if __name__ is not None and "." in __name__:
-    from .JavaScriptBaseLexer import JavaScriptBaseLexer
+    from interpreter.antlr.lexer.JavaScriptBaseLexer import JavaScriptBaseLexer
 else:
     from JavaScriptBaseLexer import JavaScriptBaseLexer
 
