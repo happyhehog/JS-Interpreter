@@ -51,12 +51,12 @@ statement
     | continueStatement
     | breakStatement
     | returnStatement
-    | withStatement
+    | withStatement // NOT IMPLEMENT
     | labelledStatement
-    | switchStatement
-    | throwStatement
-    | tryStatement
-    | debuggerStatement
+    | switchStatement// NOT IMPLEMENT
+    | throwStatement // NOT IMPLEMENT
+    | tryStatement // NOT IMPLEMENT
+    | debuggerStatement // NOT IMPLEMENT
     | functionDeclaration
     | classDeclaration
     ;
@@ -149,23 +149,23 @@ defaultClause
 labelledStatement
     : Identifier ':' statement
     ;
-
+// NOT IMPLEMENT
 throwStatement
     : Throw {self.notLineTerminator()}? expressionSequence eos
     ;
-
+// NOT IMPLEMENT
 tryStatement
     : Try block (catchProduction finallyProduction? | finallyProduction)
     ;
-
+// NOT IMPLEMENT
 catchProduction
     : Catch '(' Identifier ')' block
     ;
-
+// NOT IMPLEMENT
 finallyProduction
     : Finally block
     ;
-
+// NOT IMPLEMENT
 debuggerStatement
     : Debugger eos
     ;
@@ -373,24 +373,24 @@ keyword
     | Else
     | New
     | Var
-    | Catch
-    | Finally
+    | Catch // NOT IMPLEMENT
+    | Finally // NOT IMPLEMENT
     | Return
     | Void
     | Continue
     | For
-    | Switch
+    | Switch // NOT IMPLEMENT
     | While
-    | Debugger
+    | Debugger // NOT IMPLEMENT
     | Function
     | This
-    | With
+    | With // NOT IMPLEMENT
     | Default
     | If
-    | Throw
+    | Throw // NOT IMPLEMENT
     | Delete
     | In
-    | Try
+    | Try // NOT IMPLEMENT
 
     | Class
     | Enum
@@ -399,12 +399,12 @@ keyword
     | Const
     | Export
     | Import
-    | Implements
+    | Implements // NOT IMPLEMENT
     | Let
     | Private
     | Public
-    | Interface
-    | Package
+    | Interface // NOT IMPLEMENT
+    | Package // NOT IMPLEMENT
     | Protected
     | Static
     | Yield // NOT IMPLEMENT
