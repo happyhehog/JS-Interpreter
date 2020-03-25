@@ -9,5 +9,5 @@ def parse_file(path_to_file: str):
     token_stream = antlr4.CommonTokenStream(lexer)
     parser = JavaScriptParser(token_stream)
     tree = parser.program()
-    return tree
+    return parser, tree
 
