@@ -121,11 +121,11 @@ breakStatement
 returnStatement
     : Return ({self.notLineTerminator()}? expressionSequence)? eos
     ;
-
+// NOT IMPLEMENT
 withStatement
     : With '(' expressionSequence ')' statement
     ;
-
+// NOT IMPLEMENT
 switchStatement
     : Switch '(' expressionSequence ')' caseBlock
     ;
@@ -407,7 +407,7 @@ keyword
     | Package
     | Protected
     | Static
-    | Yield
+    | Yield // NOT IMPLEMENT
     ;
 
 getter
