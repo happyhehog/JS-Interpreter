@@ -11,3 +11,4 @@ python setup.py
 
 ## External source
 1. [Antlr4-Grammar-JavaScript-Py](https://github.com/Anoyomouse/Antlr4-Grammar-JavaScript-Py)
+2. [ESTree AST](https://github.com/estree/estree/blob/master/es5.md)
