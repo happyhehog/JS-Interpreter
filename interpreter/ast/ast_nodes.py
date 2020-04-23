@@ -1,5 +1,6 @@
 import antlr4
 from interpreter.ast.node import Node
+import interpreter.ast.operators as operators
 
 
 class Expression(Node):
@@ -143,3 +144,56 @@ class FunctionExpression(Expression, Function):
         super().__init__(ctx)
 
 
+class UnaryExpression(Expression):
+    def __init__(self, ctx: antlr4.ParserRuleContext, operator: operators.UnaryOperator, argument: Expression):
+        self.operator = operator
+        self.argument = argument
+        super().__init__(ctx)
+
+
+class BinaryExpression(Expression):
+    def __init__(self, ctx: antlr4.ParserRuleContext, operator: operators.UnaryOperator, left: Expression,
+                 right: Expression):
+        self.operator = operator
+        self.left = left
+        self.right = right
+        super().__init__(ctx)
+
+
+class AssignmentExpression(Expression):
+    def __init__(self, ctx: antlr4.ParserRuleContext, operator: operators.AssignmentOperator, left: Expression,
+                 right: Expression):
+        self.operator = operator
+        self.left = left
+        self.right = right
+        super().__init__(ctx)
+
+
+class LogicalExpression(Expression):
+    def __init__(self, ctx: antlr4.ParserRuleContext, operator: operators.LogicalOperator, left: Expression,
+                 right: Expression):
+        self.operator = operator
+        self.left = left
+        self.right = right
+        super().__init__(ctx)
+
+
+class MemberExpression(Expression):
+    def __init__(self, ctx: antlr4.ParserRuleContext, object: Expression, property: Expression, computed: bool):
+        self.object = object
+        self.property = property
+        self.computed = computed
+        super().__init__(ctx)
+
+
+class CallExpression(Expression):
+    def __init__(self, ctx: antlr4.ParserRuleContext, callee: Expression):
+        self.callee = callee
+        self.arguments = []
+        super().__init__(ctx)
+
+
+class SequenceExpression(Expression):
+    def __init__(self, ctx: antlr4.ParserRuleContext):
+        self.expressions = []
+        super().__init__(ctx)
