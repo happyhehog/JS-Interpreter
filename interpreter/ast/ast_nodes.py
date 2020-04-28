@@ -152,7 +152,7 @@ class UnaryExpression(Expression):
 
 
 class BinaryExpression(Expression):
-    def __init__(self, ctx: antlr4.ParserRuleContext, operator: operators.UnaryOperator, left: Expression,
+    def __init__(self, ctx: antlr4.ParserRuleContext, operator: operators.BinaryOperator, left: Expression,
                  right: Expression):
         self.operator = operator
         self.left = left
