@@ -1,10 +1,10 @@
 import interpreter.ast.ast_nodes as nodes
 import interpreter.ast.operators as operators
 from interpreter.antlr.parser.JavaScriptParser import JavaScriptParser
-from interpreter.antlr.parser.JavaScriptParserVisitor import JavaScriptParserVisitor
+from interpreter.antlr.parser.JavaScriptVisitor import JavaScriptVisitor
 
 
-class AstVisitor(JavaScriptParserVisitor):
+class AstVisitor(JavaScriptVisitor):
     def visitProgram(self, ctx: JavaScriptParser.ProgramContext):
         program_node = nodes.Program(ctx)
         for child in ctx.sourceElements().children:

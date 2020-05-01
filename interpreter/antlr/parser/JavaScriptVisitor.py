@@ -1,4 +1,4 @@
-# Generated from D:\yevge\Downloads\jdk-14\bin\parser\JavaScriptParser.g4 by ANTLR 4.8
+# Generated from D:\yevge\Downloads\jdk-14\bin\parser\JavaScript.g4 by ANTLR 4.8
 from antlr4 import *
 if __name__ is not None and "." in __name__:
     from .JavaScriptParser import JavaScriptParser
@@ -7,10 +7,15 @@ else:
 
 # This class defines a complete generic visitor for a parse tree produced by JavaScriptParser.
 
-class JavaScriptParserVisitor(ParseTreeVisitor):
+class JavaScriptVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by JavaScriptParser#program.
     def visitProgram(self, ctx:JavaScriptParser.ProgramContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JavaScriptParser#sourceElements.
+    def visitSourceElements(self, ctx:JavaScriptParser.SourceElementsContext):
         return self.visitChildren(ctx)
 
 
@@ -46,6 +51,11 @@ class JavaScriptParserVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by JavaScriptParser#variableDeclaration.
     def visitVariableDeclaration(self, ctx:JavaScriptParser.VariableDeclarationContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JavaScriptParser#initialiser.
+    def visitInitialiser(self, ctx:JavaScriptParser.InitialiserContext):
         return self.visitChildren(ctx)
 
 
@@ -91,11 +101,6 @@ class JavaScriptParserVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by JavaScriptParser#ForVarInStatement.
     def visitForVarInStatement(self, ctx:JavaScriptParser.ForVarInStatementContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by JavaScriptParser#varModifier.
-    def visitVarModifier(self, ctx:JavaScriptParser.VarModifierContext):
         return self.visitChildren(ctx)
 
 
@@ -179,53 +184,13 @@ class JavaScriptParserVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JavaScriptParser#classDeclaration.
-    def visitClassDeclaration(self, ctx:JavaScriptParser.ClassDeclarationContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by JavaScriptParser#classTail.
-    def visitClassTail(self, ctx:JavaScriptParser.ClassTailContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by JavaScriptParser#classElement.
-    def visitClassElement(self, ctx:JavaScriptParser.ClassElementContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by JavaScriptParser#methodDefinition.
-    def visitMethodDefinition(self, ctx:JavaScriptParser.MethodDefinitionContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by JavaScriptParser#generatorMethod.
-    def visitGeneratorMethod(self, ctx:JavaScriptParser.GeneratorMethodContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by JavaScriptParser#formalParameterList.
     def visitFormalParameterList(self, ctx:JavaScriptParser.FormalParameterListContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JavaScriptParser#formalParameterArg.
-    def visitFormalParameterArg(self, ctx:JavaScriptParser.FormalParameterArgContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by JavaScriptParser#lastFormalParameterArg.
-    def visitLastFormalParameterArg(self, ctx:JavaScriptParser.LastFormalParameterArgContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by JavaScriptParser#functionBody.
     def visitFunctionBody(self, ctx:JavaScriptParser.FunctionBodyContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by JavaScriptParser#sourceElements.
-    def visitSourceElements(self, ctx:JavaScriptParser.SourceElementsContext):
         return self.visitChildren(ctx)
 
 
@@ -239,8 +204,8 @@ class JavaScriptParserVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JavaScriptParser#lastElement.
-    def visitLastElement(self, ctx:JavaScriptParser.LastElementContext):
+    # Visit a parse tree produced by JavaScriptParser#elision.
+    def visitElision(self, ctx:JavaScriptParser.ElisionContext):
         return self.visitChildren(ctx)
 
 
@@ -249,13 +214,13 @@ class JavaScriptParserVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JavaScriptParser#PropertyExpressionAssignment.
-    def visitPropertyExpressionAssignment(self, ctx:JavaScriptParser.PropertyExpressionAssignmentContext):
+    # Visit a parse tree produced by JavaScriptParser#propertyNameAndValueList.
+    def visitPropertyNameAndValueList(self, ctx:JavaScriptParser.PropertyNameAndValueListContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JavaScriptParser#ComputedPropertyExpressionAssignment.
-    def visitComputedPropertyExpressionAssignment(self, ctx:JavaScriptParser.ComputedPropertyExpressionAssignmentContext):
+    # Visit a parse tree produced by JavaScriptParser#PropertyExpressionAssignment.
+    def visitPropertyExpressionAssignment(self, ctx:JavaScriptParser.PropertyExpressionAssignmentContext):
         return self.visitChildren(ctx)
 
 
@@ -269,18 +234,13 @@ class JavaScriptParserVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JavaScriptParser#MethodProperty.
-    def visitMethodProperty(self, ctx:JavaScriptParser.MethodPropertyContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by JavaScriptParser#PropertyShorthand.
-    def visitPropertyShorthand(self, ctx:JavaScriptParser.PropertyShorthandContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by JavaScriptParser#propertyName.
     def visitPropertyName(self, ctx:JavaScriptParser.PropertyNameContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JavaScriptParser#propertySetParameterList.
+    def visitPropertySetParameterList(self, ctx:JavaScriptParser.PropertySetParameterListContext):
         return self.visitChildren(ctx)
 
 
@@ -289,18 +249,13 @@ class JavaScriptParserVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JavaScriptParser#lastArgument.
-    def visitLastArgument(self, ctx:JavaScriptParser.LastArgumentContext):
+    # Visit a parse tree produced by JavaScriptParser#argumentList.
+    def visitArgumentList(self, ctx:JavaScriptParser.ArgumentListContext):
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by JavaScriptParser#expressionSequence.
     def visitExpressionSequence(self, ctx:JavaScriptParser.ExpressionSequenceContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by JavaScriptParser#TemplateStringExpression.
-    def visitTemplateStringExpression(self, ctx:JavaScriptParser.TemplateStringExpressionContext):
         return self.visitChildren(ctx)
 
 
@@ -394,11 +349,6 @@ class JavaScriptParserVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JavaScriptParser#ArrowFunctionExpression.
-    def visitArrowFunctionExpression(self, ctx:JavaScriptParser.ArrowFunctionExpressionContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by JavaScriptParser#EqualityExpression.
     def visitEqualityExpression(self, ctx:JavaScriptParser.EqualityExpressionContext):
         return self.visitChildren(ctx)
@@ -406,11 +356,6 @@ class JavaScriptParserVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by JavaScriptParser#BitXOrExpression.
     def visitBitXOrExpression(self, ctx:JavaScriptParser.BitXOrExpressionContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by JavaScriptParser#SuperExpression.
-    def visitSuperExpression(self, ctx:JavaScriptParser.SuperExpressionContext):
         return self.visitChildren(ctx)
 
 
@@ -469,11 +414,6 @@ class JavaScriptParserVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by JavaScriptParser#ClassExpression.
-    def visitClassExpression(self, ctx:JavaScriptParser.ClassExpressionContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by JavaScriptParser#MemberIndexExpression.
     def visitMemberIndexExpression(self, ctx:JavaScriptParser.MemberIndexExpressionContext):
         return self.visitChildren(ctx)
@@ -501,16 +441,6 @@ class JavaScriptParserVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by JavaScriptParser#VoidExpression.
     def visitVoidExpression(self, ctx:JavaScriptParser.VoidExpressionContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by JavaScriptParser#arrowFunctionParameters.
-    def visitArrowFunctionParameters(self, ctx:JavaScriptParser.ArrowFunctionParametersContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by JavaScriptParser#arrowFunctionBody.
-    def visitArrowFunctionBody(self, ctx:JavaScriptParser.ArrowFunctionBodyContext):
         return self.visitChildren(ctx)
 
 
@@ -544,6 +474,11 @@ class JavaScriptParserVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by JavaScriptParser#futureReservedWord.
+    def visitFutureReservedWord(self, ctx:JavaScriptParser.FutureReservedWordContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by JavaScriptParser#getter.
     def visitGetter(self, ctx:JavaScriptParser.GetterContext):
         return self.visitChildren(ctx)
@@ -556,6 +491,11 @@ class JavaScriptParserVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by JavaScriptParser#eos.
     def visitEos(self, ctx:JavaScriptParser.EosContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by JavaScriptParser#eof.
+    def visitEof(self, ctx:JavaScriptParser.EofContext):
         return self.visitChildren(ctx)
 
 
