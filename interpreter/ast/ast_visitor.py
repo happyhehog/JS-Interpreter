@@ -7,14 +7,12 @@ from interpreter.antlr.parser.JavaScriptVisitor import JavaScriptVisitor
 class AstVisitor(JavaScriptVisitor):
     def visitProgram(self, ctx: JavaScriptParser.ProgramContext):
         program_node = nodes.Program(ctx)
-        for child in ctx.sourceElements().children:
-            program_node.body.append(self.visit(child))
+        program_node.body = [self.visit(child) for child in ctx.sourceElements().children]
         return program_node
 
     def visitBlock(self, ctx: JavaScriptParser.BlockContext):
         block_node = nodes.BlockStatement(ctx)
-        for child in ctx.statementList().children:
-            block_node.body.append(self.visit(child))
+        block_node.body = [self.visit(child) for child in ctx.statementList().children]
         return block_node
 
     def visitVariableStatement(self, ctx: JavaScriptParser.VariableStatementContext):
@@ -22,11 +20,13 @@ class AstVisitor(JavaScriptVisitor):
 
     def visitVariableDeclarationList(self, ctx: JavaScriptParser.VariableDeclarationListContext):
         variable_node = nodes.VariableDeclaration(ctx)
-        variable_node.declarations.append(self.visit(ctx.variableDeclaration()))
+        variable_node.declarations = [self.visit(decl) for decl in ctx.variableDeclaration()]
         return variable_node
 
     def visitVariableDeclaration(self, ctx: JavaScriptParser.VariableDeclarationContext):
-        declarator_node = nodes.VariableDeclarator(ctx, nodes.Identifier(ctx, ctx.Identifier().symbol.text()))
+        declarator_node = nodes.VariableDeclarator(ctx, nodes.Identifier(ctx, ctx.Identifier().symbol.text))
+        if ctx.initialiser() is not None:
+            declarator_node.init = self.visit(ctx.initialiser().singleExpression())
         return declarator_node
 
     def visitEmptyStatement(self, ctx: JavaScriptParser.EmptyStatementContext):
@@ -58,16 +58,15 @@ class AstVisitor(JavaScriptVisitor):
 
     def visitFunctionDeclaration(self, ctx: JavaScriptParser.FunctionDeclarationContext):
         func_decl_node = nodes.FunctionDeclaration(ctx, self.visit(ctx.functionBody()),
-                                                   nodes.Identifier(ctx, ctx.Identifier().symbol.text()))
+                                                   nodes.Identifier(ctx, ctx.Identifier().symbol.text))
         if ctx.formalParameterList() is not None:
             for identifier in ctx.formalParameterList().Identifier():
-                func_decl_node.params.append(nodes.Identifier(ctx, identifier.symbol.text()))
+                func_decl_node.params.append(nodes.Identifier(ctx, identifier.symbol.text))
         return func_decl_node
 
     def visitFunctionBody(self, ctx: JavaScriptParser.FunctionBodyContext):
         func_body_node = nodes.FunctionBody(ctx)
-        for child in ctx.sourceElements().children:
-            func_body_node.body.append(self.visit(child))
+        func_body_node.body = [self.visit(child) for child in ctx.sourceElements().children]
         return func_body_node
 
     def visitArrayLiteral(self, ctx: JavaScriptParser.ArrayLiteralContext):
@@ -80,9 +79,7 @@ class AstVisitor(JavaScriptVisitor):
 
     def visitObjectLiteral(self, ctx: JavaScriptParser.ObjectLiteralContext):
         object_node = nodes.ObjectExpression(ctx)
-        assignments = ctx.propertyAssignment()
-        for assign in assignments:
-            object_node.elements.append(self.visit(assign))
+        object_node.elements = [self.visit(assign) for assign in ctx.propertyNameAndValueList().propertyAssignment()]
         return object_node
 
     def visitPropertyExpressionAssignment(self, ctx: JavaScriptParser.PropertyExpressionAssignmentContext):
@@ -93,12 +90,11 @@ class AstVisitor(JavaScriptVisitor):
             return self.visit(ctx.numericLiteral())
         if ctx.identifierName() is not None:
             return self.visit(ctx.identifierName())
-        return nodes.Literal(ctx, ctx.StringLiteral().symbol.text())
+        return nodes.Literal(ctx, ctx.StringLiteral().symbol.text)
 
     def visitExpressionSequence(self, ctx: JavaScriptParser.ExpressionSequenceContext):
         sequence_node = nodes.SequenceExpression(ctx)
-        for expression in ctx.singleExpression():
-            sequence_node.expressions.append(self.visit(expression))
+        sequence_node.expressions = [self.visit(expression) for expression in ctx.singleExpression()]
         return sequence_node
 
     def visitLogicalAndExpression(self, ctx: JavaScriptParser.LogicalAndExpressionContext):
@@ -125,10 +121,10 @@ class AstVisitor(JavaScriptVisitor):
     def visitFunctionExpression(self, ctx: JavaScriptParser.FunctionExpressionContext):
         func_exp_node = nodes.FunctionExpression(ctx, self.visit(ctx.functionBody()))
         if ctx.Identifier() is not None:
-            func_exp_node.id = nodes.Identifier(ctx, ctx.Identifier().symbol.text())
+            func_exp_node.id = nodes.Identifier(ctx, ctx.Identifier().symbol.text)
         if ctx.formalParameterList() is not None:
-            for arg_id in ctx.formalParameterList().formalParameterArg().Identifier():
-                func_exp_node.params.append(nodes.Identifier(ctx, arg_id.symbol.text()))
+            for arg_id in ctx.formalParameterList().Identifier():
+                func_exp_node.params.append(nodes.Identifier(ctx, arg_id.symbol.text))
         return func_exp_node
 
     def visitUnaryMinusExpression(self, ctx: JavaScriptParser.UnaryMinusExpressionContext):
@@ -227,7 +223,7 @@ class AstVisitor(JavaScriptVisitor):
                                       True)
 
     def visitIdentifierExpression(self, ctx: JavaScriptParser.IdentifierExpressionContext):
-        return nodes.Identifier(ctx, ctx.Identifier().symbol.text())
+        return nodes.Identifier(ctx, ctx.Identifier().symbol.text)
 
     def visitBitAndExpression(self, ctx: JavaScriptParser.BitAndExpressionContext):
         return nodes.BinaryExpression(ctx, operators.BinaryOperator.BIT_AND, self.visit(ctx.singleExpression(0)),
@@ -242,22 +238,26 @@ class AstVisitor(JavaScriptVisitor):
             return nodes.Literal(ctx, ctx.StringLiteral().symbol.text())
         if ctx.NullLiteral() is not None:
             return nodes.Literal(ctx, None)
+        if ctx.BooleanLiteral() is not None:
+            return nodes.Literal(ctx, ctx.BooleanLiteral() == "true")
         return self.visit(ctx.numericLiteral())
 
     def visitNumericLiteral(self, ctx: JavaScriptParser.NumericLiteralContext):
-        return nodes.Literal(ctx, float(ctx.DecimalLiteral().symbol.text()))
+        return nodes.Literal(ctx, float(ctx.DecimalLiteral().symbol.text))
 
     def visitIdentifierName(self, ctx: JavaScriptParser.IdentifierNameContext):
         if ctx.reservedWord() is not None:
             return self.visit(ctx.reservedWord())
-        return nodes.Identifier(ctx, ctx.Identifier().symbol.text())
+        return nodes.Identifier(ctx, ctx.Identifier().symbol.text)
 
     def visitReservedWord(self, ctx: JavaScriptParser.ReservedWordContext):
         if ctx.keyword() is not None:
             return self.visit(ctx.keyword())
+        if ctx.futureReservedWord() is not None:
+            return self.visit(ctx.futureReservedWord())
         if ctx.NullLiteral() is not None:
             return nodes.Literal(ctx, None)
         return nodes.Literal(ctx, ctx.BooleanLiteral() == "true")
 
     def visitKeyword(self, ctx: JavaScriptParser.KeywordContext):
-        return nodes.Identifier(ctx, ctx.getChild(0).symbol.text())
+        return nodes.Identifier(ctx, ctx.getChild(0).symbol.text)
