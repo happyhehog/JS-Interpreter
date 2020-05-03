@@ -113,8 +113,8 @@ class AstVisitor(JavaScriptVisitor):
 
     def visitArgumentsExpression(self, ctx: JavaScriptParser.ArgumentsExpressionContext):
         call_node = nodes.CallExpression(ctx, self.visit(ctx.singleExpression()))
-        if ctx.arguments() is not None:
-            for arg in ctx.arguments().singleExpression():
+        if ctx.arguments().argumentList() is not None:
+            for arg in ctx.arguments().argumentList().singleExpression():
                 call_node.arguments.append(self.visit(arg))
         return call_node
 
