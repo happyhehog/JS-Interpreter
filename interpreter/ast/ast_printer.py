@@ -19,4 +19,4 @@ def save_ast_to_file(ast_nodes: ast_nodes.Program, filename: str) -> typing.NoRe
 def print_ast(ast_nodes: ast_nodes.Program) -> typing.NoReturn:
     ast_viewver = ASTView()
     ast_viewver.visit(ast_nodes)
-    ast_viewver.ast_tree.show(key=False)
+    ast_viewver.ast_tree.show(key=False, line_type="ascii")
