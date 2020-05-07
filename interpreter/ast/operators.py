@@ -10,8 +10,8 @@ class UnaryOperator(Enum):
 
 
 class BinaryOperator(Enum):
-    EQUAL = "=="
-    UNEQUAL = "!="
+    EQUAL = "==="
+    UNEQUAL = "!=="
     LESS = "<"
     LESS_OR_EQUAL = "<="
     GREATER = ">"

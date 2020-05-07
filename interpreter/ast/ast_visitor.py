@@ -82,7 +82,9 @@ class ASTVisitor(JavaScriptVisitor):
 
     def visitObjectLiteral(self, ctx: JavaScriptParser.ObjectLiteralContext):
         object_node = nodes.ObjectExpression(ctx)
-        object_node.elements = [self.visit(assign) for assign in ctx.propertyNameAndValueList().propertyAssignment()]
+        if ctx.propertyNameAndValueList() is not None:
+            object_node.elements = [self.visit(assign) for assign in
+                                    ctx.propertyNameAndValueList().propertyAssignment()]
         return object_node
 
     def visitPropertyExpressionAssignment(self, ctx: JavaScriptParser.PropertyExpressionAssignmentContext):
@@ -145,9 +147,9 @@ class ASTVisitor(JavaScriptVisitor):
 
     def visitEqualityExpression(self, ctx: JavaScriptParser.EqualityExpressionContext):
         operator_str = ctx.children[1].getText()
-        if operator_str == "==":
+        if operator_str == "===":
             unary_operator = operators.BinaryOperator.EQUAL
-        elif operator_str == "!=":
+        elif operator_str == "!==":
             unary_operator = operators.BinaryOperator.UNEQUAL
         else:
             unary_operator = None
@@ -238,7 +240,7 @@ class ASTVisitor(JavaScriptVisitor):
 
     def visitLiteral(self, ctx: JavaScriptParser.LiteralContext):
         if ctx.StringLiteral() is not None:
-            return nodes.Literal(ctx, ctx.StringLiteral().symbol.text())
+            return nodes.Literal(ctx, ctx.StringLiteral().symbol.text)
         if ctx.NullLiteral() is not None:
             return nodes.Literal(ctx, None)
         if ctx.BooleanLiteral() is not None:

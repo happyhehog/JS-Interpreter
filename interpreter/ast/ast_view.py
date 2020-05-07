@@ -11,6 +11,7 @@ class ASTView:
 
     def __get_base_node_info(self, node: ast_nodes.Node) -> str:
         location = "(" + str(node.location.start.line) + ":" + str(node.location.start.column) + ")"
+        location += "|(" + str(node.location.end.line) + ":" + str(node.location.end.column) + ")"
         return type(node).__name__ + " " + location
 
     def __get_name_value_string(self, name: str, value) -> str:
@@ -269,7 +270,9 @@ class ASTView:
             return
 
         if isinstance(node, ast_nodes.FunctionExpression):
-            node_str = self.__get_base_node_info(node) + self.__get_name_value_string("Name", node.id.name)
+            node_str = self.__get_base_node_info(node)
+            if node.id is not None:
+                node_str += self.__get_name_value_string("Name", node.id.name)
             if parent_str is not None:
                 self.ast_tree.create_node(node_str, node_str, parent=parent_str)
             if node.id is not None:
