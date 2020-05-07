@@ -1,0 +1,10 @@
+Program (1:0; 1:14)
++-- ExpressionStatement (1:0; 1:14)
+    +-- SequenceExpression (1:0; 1:14)
+        +-- BinaryExpression (1:0; 1:14) [Operator: +]
+            |-- BinaryExpression (1:0; 1:10) [Operator: +]
+            |   |-- SequenceExpression (1:1; 1:1)
+            |   |   +-- Literal (1:1; 1:1) [Value: 1.0]
+            |   +-- SequenceExpression (1:7; 1:7)
+            |       +-- Literal (1:7; 1:7) [Value: 2.0]
+            +-- Literal (1:14; 1:14) [Value: 3.0]

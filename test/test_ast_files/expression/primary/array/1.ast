@@ -1,0 +1,6 @@
+Program (1:0; 1:6)
++-- ExpressionStatement (1:0; 1:6)
+    +-- SequenceExpression (1:0; 1:6)
+        +-- AssignmentExpression (1:0; 1:6) [Operator: =]
+            |-- Identifier (1:0; 1:0) [Name: x]
+            +-- ArrayExpression (1:4; 1:6)

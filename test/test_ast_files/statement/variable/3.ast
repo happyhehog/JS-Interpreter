@@ -1,0 +1,8 @@
+Program (1:0; 1:27)
++-- VariableDeclaration (1:4; 1:27)
+    |-- VariableDeclarator (1:4; 1:11)
+    |   |-- Identifier (1:4; 1:11) [Name: eval]
+    |   +-- Literal (1:11; 1:11) [Value: 42.0]
+    +-- VariableDeclarator (1:15; 1:27)
+        |-- Identifier (1:15; 1:27) [Name: arguments]
+        +-- Literal (1:27; 1:27) [Value: 42.0]

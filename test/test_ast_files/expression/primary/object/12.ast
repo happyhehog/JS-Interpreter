@@ -1,0 +1,9 @@
+Program (1:0; 1:20)
++-- ExpressionStatement (1:0; 1:20)
+    +-- SequenceExpression (1:0; 1:20)
+        +-- AssignmentExpression (1:0; 1:20) [Operator: =]
+            |-- Identifier (1:0; 1:0) [Name: x]
+            +-- ObjectExpression (1:4; 1:20)
+                +-- Property (1:5; 1:18)
+                    |-- Literal (1:5; 1:5) [Value: "__proto__"]
+                    +-- Literal (1:18; 1:18) [Value: 2.0]

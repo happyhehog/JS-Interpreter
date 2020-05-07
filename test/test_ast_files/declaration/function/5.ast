@@ -1,0 +1,7 @@
+Program (1:0; 1:39)
++-- FunctionDeclaration (1:0; 1:39) [Name: eval]
+    |-- Identifier (1:0; 1:39) [Name: eval]
+    +-- FunctionBody (1:18; 1:37)
+        +-- FunctionDeclaration (1:18; 1:37) [Name: inner]
+            |-- Identifier (1:18; 1:37) [Name: inner]
+            +-- FunctionBody (1:37; 1:35)

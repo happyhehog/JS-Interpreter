@@ -1,0 +1,12 @@
+Program (1:0; 5:0)
++-- WhileStatement (1:0; 5:0)
+    |-- SequenceExpression (1:7; 1:7)
+    |   +-- Literal (1:7; 1:7) [Value: False]
+    +-- BlockStatement (1:13; 5:0)
+        +-- IfStatement (2:4; 4:10)
+            |-- ExpressionStatement (4:9; 4:10)
+            |   +-- SequenceExpression (4:9; 4:9)
+            |       +-- Identifier (4:9; 4:9) [Name: y]
+            |-- SequenceExpression (2:8; 2:8)
+            |   +-- Identifier (2:8; 2:8) [Name: x]
+            +-- BreakStatement (2:11; 3:4)

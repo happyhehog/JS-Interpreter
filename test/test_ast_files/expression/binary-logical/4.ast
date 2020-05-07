@@ -1,0 +1,8 @@
+Program (1:0; 1:10)
++-- ExpressionStatement (1:0; 1:10)
+    +-- SequenceExpression (1:0; 1:10)
+        +-- LogicalExpression (1:0; 1:10) [Operator: ||]
+            |-- Identifier (1:0; 1:0) [Name: x]
+            +-- LogicalExpression (1:5; 1:10) [Operator: &&]
+                |-- Identifier (1:5; 1:5) [Name: y]
+                +-- Identifier (1:10; 1:10) [Name: z]

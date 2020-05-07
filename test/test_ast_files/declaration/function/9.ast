@@ -1,0 +1,7 @@
+Program (1:0; 1:28)
++-- VariableDeclaration (1:4; 1:27)
+    +-- VariableDeclarator (1:4; 1:27)
+        |-- Identifier (1:4; 1:27) [Name: hi]
+        +-- FunctionExpression (1:9; 1:27) [Name: eval]
+            |-- Identifier (1:9; 1:27) [Name: eval]
+            +-- FunctionBody (1:27; 1:25)

@@ -1,0 +1,9 @@
+Program (1:0; 1:29)
++-- FunctionDeclaration (1:0; 1:29) [Name: test]
+    |-- Identifier (1:0; 1:29) [Name: test]
+    +-- FunctionBody (1:18; 1:27)
+        +-- ExpressionStatement (1:18; 1:27)
+            +-- SequenceExpression (1:18; 1:25)
+                +-- BinaryExpression (1:18; 1:25) [Operator: +]
+                    |-- Literal (1:18; 1:18) [Value: "42"]
+                    +-- Literal (1:25; 1:25) [Value: 42.0]

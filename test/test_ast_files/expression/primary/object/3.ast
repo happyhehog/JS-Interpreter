@@ -1,0 +1,9 @@
+Program (1:0; 1:13)
++-- ExpressionStatement (1:0; 1:13)
+    +-- SequenceExpression (1:0; 1:13)
+        +-- AssignmentExpression (1:0; 1:13) [Operator: =]
+            |-- Identifier (1:0; 1:0) [Name: x]
+            +-- ObjectExpression (1:4; 1:13)
+                +-- Property (1:6; 1:10)
+                    |-- Identifier (1:6; 1:6) [Name: if]
+                    +-- Literal (1:10; 1:10) [Value: 42.0]

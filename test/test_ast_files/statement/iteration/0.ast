@@ -1,0 +1,8 @@
+Program (1:0; 1:25)
++-- WhileStatement (1:0; 1:25)
+    |-- SequenceExpression (1:7; 1:7)
+    |   +-- Literal (1:7; 1:7) [Value: False]
+    +-- ExpressionStatement (1:13; 1:25)
+        +-- SequenceExpression (1:13; 1:25)
+            +-- CallExpression (1:13; 1:25)
+                +-- Identifier (1:13; 1:13) [Name: doSomething]

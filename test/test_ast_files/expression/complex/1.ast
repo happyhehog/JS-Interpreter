@@ -1,0 +1,14 @@
+Program (1:0; 1:20)
++-- ExpressionStatement (1:0; 1:20)
+    +-- SequenceExpression (1:0; 1:20)
+        +-- BinaryExpression (1:0; 1:20) [Operator: +]
+            |-- BinaryExpression (1:0; 1:16) [Operator: +]
+            |   |-- Identifier (1:0; 1:0) [Name: a]
+            |   +-- SequenceExpression (1:5; 1:15)
+            |       +-- BinaryExpression (1:5; 1:15) [Operator: <]
+            |           |-- Identifier (1:5; 1:5) [Name: b]
+            |           +-- SequenceExpression (1:10; 1:14)
+            |               +-- BinaryExpression (1:10; 1:14) [Operator: *]
+            |                   |-- Identifier (1:10; 1:10) [Name: c]
+            |                   +-- Identifier (1:14; 1:14) [Name: d]
+            +-- Identifier (1:20; 1:20) [Name: e]

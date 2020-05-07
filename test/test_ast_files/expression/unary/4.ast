@@ -1,0 +1,5 @@
+Program (1:0; 1:7)
++-- ExpressionStatement (1:0; 1:7)
+    +-- SequenceExpression (1:0; 1:7)
+        +-- UnaryExpression (1:0; 1:7) [Operator: delete]
+            +-- Identifier (1:7; 1:7) [Name: x]

@@ -1,0 +1,8 @@
+Program (1:0; 1:18)
++-- ExpressionStatement (1:0; 1:18)
+    +-- SequenceExpression (1:0; 1:18)
+        +-- MemberExpression (1:0; 1:18) [Computed([]/.): False]
+            |-- MemberExpression (1:0; 1:9) [Computed([]/.): False]
+            |   |-- Identifier (1:0; 1:0) [Name: universe]
+            |   +-- Identifier (1:9; 1:9) [Name: milkyway]
+            +-- Identifier (1:18; 1:18) [Name: solarsystem]

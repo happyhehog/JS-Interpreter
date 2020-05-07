@@ -1,0 +1,5 @@
+Program (1:0; 1:6)
++-- BlockStatement (1:0; 1:6)
+    +-- ExpressionStatement (1:2; 1:2)
+        +-- SequenceExpression (1:2; 1:2)
+            +-- Identifier (1:2; 1:2) [Name: foo]

@@ -1,0 +1,11 @@
+Program (1:0; 1:23)
++-- VariableDeclaration (1:4; 1:23)
+    |-- VariableDeclarator (1:4; 1:8)
+    |   |-- Identifier (1:4; 1:8) [Name: x]
+    |   +-- Literal (1:8; 1:8) [Value: 14.0]
+    |-- VariableDeclarator (1:12; 1:16)
+    |   |-- Identifier (1:12; 1:16) [Name: y]
+    |   +-- Literal (1:16; 1:16) [Value: 3.0]
+    +-- VariableDeclarator (1:19; 1:23)
+        |-- Identifier (1:19; 1:23) [Name: z]
+        +-- Literal (1:23; 1:23) [Value: 1977.0]

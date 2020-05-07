@@ -1,0 +1,21 @@
+Program (1:0; 1:39)
++-- WhileStatement (1:0; 1:39)
+    |-- SequenceExpression (1:7; 1:11)
+    |   +-- BinaryExpression (1:7; 1:11) [Operator: <]
+    |       |-- Identifier (1:7; 1:7) [Name: x]
+    |       +-- Literal (1:11; 1:11) [Value: 10.0]
+    +-- BlockStatement (1:15; 1:39)
+        |-- ExpressionStatement (1:17; 1:26)
+        |   +-- SequenceExpression (1:17; 1:25)
+        |       +-- AssignmentExpression (1:17; 1:25) [Operator: =]
+        |           |-- Identifier (1:17; 1:17) [Name: x]
+        |           +-- BinaryExpression (1:21; 1:25) [Operator: +]
+        |               |-- Identifier (1:21; 1:21) [Name: x]
+        |               +-- Literal (1:25; 1:25) [Value: 1.0]
+        +-- ExpressionStatement (1:28; 1:37)
+            +-- SequenceExpression (1:28; 1:36)
+                +-- AssignmentExpression (1:28; 1:36) [Operator: =]
+                    |-- Identifier (1:28; 1:28) [Name: y]
+                    +-- BinaryExpression (1:32; 1:36) [Operator: -]
+                        |-- Identifier (1:32; 1:32) [Name: y]
+                        +-- Literal (1:36; 1:36) [Value: 1.0]

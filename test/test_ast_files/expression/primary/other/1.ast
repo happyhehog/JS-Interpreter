@@ -1,0 +1,4 @@
+Program (2:4; 2:4)
++-- ExpressionStatement (2:4; 2:4)
+    +-- SequenceExpression (2:4; 2:4)
+        +-- Literal (2:4; 2:4) [Value: 42.0]

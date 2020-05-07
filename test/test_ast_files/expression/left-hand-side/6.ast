@@ -1,0 +1,7 @@
+Program (1:0; 1:19)
++-- ExpressionStatement (1:0; 1:19)
+    +-- SequenceExpression (1:0; 1:19)
+        +-- MemberExpression (1:0; 1:19) [Computed([]/.): True]
+            |-- Identifier (1:0; 1:0) [Name: universe]
+            +-- SequenceExpression (1:9; 1:9)
+                +-- Identifier (1:9; 1:9) [Name: galaxyName]

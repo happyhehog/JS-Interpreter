@@ -1,0 +1,4 @@
+Program (1:0; 1:23)
++-- FunctionDeclaration (1:0; 1:23) [Name: arguments]
+    |-- Identifier (1:0; 1:23) [Name: arguments]
+    +-- FunctionBody (1:23; 1:21)

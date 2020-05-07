@@ -1,0 +1,12 @@
+Program (1:0; 1:44)
++-- ExpressionStatement (1:0; 1:44)
+    +-- SequenceExpression (1:0; 1:44)
+        +-- CallExpression (1:0; 1:44)
+            |-- MemberExpression (1:0; 1:21) [Computed([]/.): False]
+            |   |-- MemberExpression (1:0; 1:11) [Computed([]/.): False]
+            |   |   |-- MemberExpression (1:0; 1:6) [Computed([]/.): False]
+            |   |   |   |-- Identifier (1:0; 1:0) [Name: earth]
+            |   |   |   +-- Identifier (1:6; 1:6) [Name: asia]
+            |   |   +-- Identifier (1:11; 1:11) [Name: Indonesia]
+            |   +-- Identifier (1:21; 1:21) [Name: prepareForElection]
+            +-- Literal (1:40; 1:40) [Value: 2014.0]

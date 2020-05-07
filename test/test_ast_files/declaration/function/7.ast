@@ -1,0 +1,8 @@
+Program (1:0; 1:32)
++-- FunctionDeclaration (1:0; 1:32) [Name: hello]
+    |-- Identifier (1:0; 1:32) [Name: hello]
+    +-- FunctionBody (1:23; 1:30)
+        +-- ExpressionStatement (1:23; 1:30)
+            +-- SequenceExpression (1:23; 1:29)
+                +-- CallExpression (1:23; 1:29)
+                    +-- Identifier (1:23; 1:23) [Name: sayHi]

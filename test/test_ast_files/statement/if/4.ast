@@ -1,0 +1,12 @@
+Program (1:0; 1:41)
++-- IfStatement (1:0; 1:41)
+    |-- ExpressionStatement (1:33; 1:41)
+    |   +-- SequenceExpression (1:33; 1:41)
+    |       +-- CallExpression (1:33; 1:41)
+    |           +-- Identifier (1:33; 1:33) [Name: goodDay]
+    |-- SequenceExpression (1:4; 1:4)
+    |   +-- Identifier (1:4; 1:4) [Name: morning]
+    +-- ExpressionStatement (1:13; 1:26)
+        +-- SequenceExpression (1:13; 1:25)
+            +-- CallExpression (1:13; 1:25)
+                +-- Identifier (1:13; 1:13) [Name: goodMorning]

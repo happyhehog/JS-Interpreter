@@ -1,0 +1,6 @@
+Program (1:0; 1:12)
++-- ExpressionStatement (1:0; 1:12)
+    +-- SequenceExpression (1:0; 1:12)
+        +-- CallExpression (1:0; 1:12)
+            +-- SequenceExpression (1:5; 1:5)
+                +-- Identifier (1:5; 1:5) [Name: foo]
