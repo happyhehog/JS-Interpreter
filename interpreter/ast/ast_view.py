@@ -10,8 +10,8 @@ class ASTView:
         self.ast_tree = Tree()
 
     def __get_base_node_info(self, node: ast_nodes.Node) -> str:
-        location = "(" + str(node.location.start.line) + ":" + str(node.location.start.column) + ")"
-        location += "|(" + str(node.location.end.line) + ":" + str(node.location.end.column) + ")"
+        location = "(" + str(node.location.start.line) + ":" + str(node.location.start.column) + "; "
+        location += str(node.location.end.line) + ":" + str(node.location.end.column) + ")"
         return type(node).__name__ + " " + location
 
     def __get_name_value_string(self, name: str, value) -> str:
