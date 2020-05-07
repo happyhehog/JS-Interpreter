@@ -7,12 +7,14 @@ from interpreter.antlr.parser.JavaScriptVisitor import JavaScriptVisitor
 class ASTVisitor(JavaScriptVisitor):
     def visitProgram(self, ctx: JavaScriptParser.ProgramContext):
         program_node = nodes.Program(ctx)
-        program_node.body = [self.visit(child) for child in ctx.sourceElements().children]
+        if ctx.sourceElements() is not None:
+            program_node.body = [self.visit(child) for child in ctx.sourceElements().children]
         return program_node
 
     def visitBlock(self, ctx: JavaScriptParser.BlockContext):
         block_node = nodes.BlockStatement(ctx)
-        block_node.body = [self.visit(child) for child in ctx.statementList().children]
+        if ctx.statementList() is not None:
+            block_node.body = [self.visit(child) for child in ctx.statementList().children]
         return block_node
 
     def visitVariableStatement(self, ctx: JavaScriptParser.VariableStatementContext):
@@ -66,7 +68,8 @@ class ASTVisitor(JavaScriptVisitor):
 
     def visitFunctionBody(self, ctx: JavaScriptParser.FunctionBodyContext):
         func_body_node = nodes.FunctionBody(ctx)
-        func_body_node.body = [self.visit(child) for child in ctx.sourceElements().children]
+        if ctx.sourceElements() is not None:
+            func_body_node.body = [self.visit(child) for child in ctx.sourceElements().children]
         return func_body_node
 
     def visitArrayLiteral(self, ctx: JavaScriptParser.ArrayLiteralContext):
