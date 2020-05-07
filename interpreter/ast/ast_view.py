@@ -5,7 +5,7 @@ from treelib import Tree
 import interpreter.ast.ast_nodes as ast_nodes
 
 
-class ASTPrinter:
+class ASTView:
     def __init__(self):
         self.ast_tree = Tree()
 

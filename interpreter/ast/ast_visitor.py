@@ -4,7 +4,7 @@ from interpreter.antlr.parser.JavaScriptParser import JavaScriptParser
 from interpreter.antlr.parser.JavaScriptVisitor import JavaScriptVisitor
 
 
-class AstVisitor(JavaScriptVisitor):
+class ASTVisitor(JavaScriptVisitor):
     def visitProgram(self, ctx: JavaScriptParser.ProgramContext):
         program_node = nodes.Program(ctx)
         program_node.body = [self.visit(child) for child in ctx.sourceElements().children]
