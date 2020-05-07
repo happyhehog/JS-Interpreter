@@ -13,7 +13,7 @@ def get_ast(tree: JavaScriptParser.ProgramContext) -> ast_nodes.Program:
 def save_ast_to_file(ast_nodes: ast_nodes.Program, filename: str) -> typing.NoReturn:
     ast_viewver = ASTView()
     ast_viewver.visit(ast_nodes)
-    ast_viewver.ast_tree.save2file(filename, key=False)
+    ast_viewver.ast_tree.save2file(filename, key=False, line_type="ascii")
 
 
 def print_ast(ast_nodes: ast_nodes.Program) -> typing.NoReturn:
